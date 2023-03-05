@@ -1,27 +1,25 @@
 #include <iostream>
-#include <iomanip>
-#include <string>
+#include <sstream>
 
 using namespace std;
 
-int main(){
-    string line1, line2;
-    int code1, units_1, code2, units_2;
-    double price_1, price_2, total;
+void getNumberFromString(string line){
+    stringstream str_strm;
+    str_strm << line;
+    string temp_str;
+    int temp_int;
 
-    cin >> line1;
-    cin >> line2;
-
-    int pos = 0;
-
-    for(int i = 0; i < line1.length(); i++){
-        if(line1.find(" ")){
-            code1 =
+    while(!str_strm.eof()){
+        str_strm >> temp_str;
+        if(stringstream(temp_str) >> temp_int){
+            cout << temp_int << " ";
         }
+        temp_str = "";
     }
+}
 
-    total = (units_1 * price_1) + (units_2 * price_2);
-
-    cout << "VALOR A PAGAR: R$ " << fixed << setprecision(2) << total << endl;
+int main(){
+    string my_str = "12 1 5";
+    getNumberFromString(my_str);
     return 0;
 }
