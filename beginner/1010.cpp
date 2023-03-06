@@ -3,23 +3,24 @@
 
 using namespace std;
 
-void getNumberFromString(string line){
+void getNumberFromString(string line, int &code, double &price, double &quant){
     stringstream str_strm;
-    str_strm << line;
+    str_strm << line; // string line is converted into stringstream
     string temp_str;
     int temp_int;
+    string aux;
 
     while(!str_strm.eof()){
         str_strm >> temp_str;
         if(stringstream(temp_str) >> temp_int){
-            cout << temp_int << " ";
+            aux = temp_int;
         }
         temp_str = "";
     }
 }
 
 int main(){
-    string my_str = "12 1 5";
+    string my_str = "Hello 12 World 1 5";
     getNumberFromString(my_str);
     return 0;
 }
