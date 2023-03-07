@@ -1,26 +1,17 @@
 #include <iostream>
-#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
-void getNumberFromString(string line, int &code, double &price, double &quant){
-    stringstream str_strm;
-    str_strm << line; // string line is converted into stringstream
-    string temp_str;
-    int temp_int;
-    string aux;
-
-    while(!str_strm.eof()){
-        str_strm >> temp_str;
-        if(stringstream(temp_str) >> temp_int){
-            aux = temp_int;
-        }
-        temp_str = "";
-    }
-}
-
 int main(){
-    string my_str = "Hello 12 World 1 5";
-    getNumberFromString(my_str);
+    int cod1, units1, cod2, units2;
+    double price1, price2, amount_to_pay;
+
+    cin >> cod1 >> units1 >> price1;
+    cin >> cod2 >> units2 >> price2;
+
+    amount_to_pay = (units1 * price1) + (units2 * price2);
+
+    cout << "VALOR A PAGAR: R$ " << fixed << setprecision(2) << amount_to_pay << endl;
     return 0;
 }
