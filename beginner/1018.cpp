@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    int value, hund, fift, twt, ten, fiv, two, one, rem, i;
+    int value, hund, fift, twt, ten, fiv, two, one, rem;
 
     cin >> value;
 
@@ -23,6 +23,7 @@ int main(){
     rem = rem%2;
     one = rem/1;
 
+    cout << value << endl;
     cout << hund << " nota(s) de R$ 100,00" << endl;
     cout << fift << " nota(s) de R$ 50,00" << endl;
     cout << twt << " nota(s) de R$ 20,00" << endl;
