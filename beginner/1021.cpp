@@ -20,7 +20,7 @@ int main(){
         cout << quant_bknc[i] << " nota(s) de R$ " << fixed << setprecision(2) << bkn_c[i] << endl;
     }
     cout << "MOEDAS:" << endl;
-    for(i = 6; i < 12; i++){
+    for(i = 6 ; i < 12; i++){
         cout << quant_bknc[i] << " moeda(s) de R$ " << bkn_c[i] << endl;
     }
     return 0;
