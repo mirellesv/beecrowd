@@ -20,37 +20,35 @@ as the given example.
 using namespace std;
 
 int main(){
-    double money, notes[6] = {100, 50, 20, 10, 5, 2}, coins[6] = {1, 0.50, 0.25, 0.10, 0.05, 0.01};
-    int i, quant_bknc[12], j, value;
+    double amount;
+    int i, temp, integer, decimal, notes[6] = {100, 50, 20, 10, 5, 2}, coins[6] = {100, 50, 25, 10, 5, 1};
 
-    cin >> money;
+    cout << fixed << setprecision(2);
 
-    // 70.34: the number will be converted into binary so that it will be stored. In binary, it would
+    cin >> amount;
+
+    // The number 70.34, for example, will be converted into binary so that it will be stored. In binary, it would
     // be 70.33999999999999999999. To make sure the int function won't get 7033, we first multiply what's
     // in the variable money by 100.
 
-    value = int(round(money*100));
+    temp = amount * 100;
 
-    for(i = 0; i < 6; i++){
-        quant_bknc[i] = money/notes[i];
-        money = mod(money, notes[i]); // fmod returns the floating-point remainder of the division
-    }
-
-    j = 6; // j is an auxiliary variable that's gonna be storing the minimum
-           // position of quant_bknc that's available for use
-    for(i = 0; i < 6; i++){
-        quant_bknc[j] = money/coins[i];
-        money = mod(money, coins[i]);
-        j++;
-    }
+    integer = temp/100;
+    decimal = temp%100;
 
     cout << "NOTAS:" << endl;
-    for(i = 0; i < 6; i++){
-        cout << quant_bknc[i] << " nota(s) de R$ " << fixed << setprecision(2) << notes[i] << endl;
+
+    for(i = 0; i < 6;i++){ // Decomposing the integer part
+        cout << integer/notes[i] << " nota(s) de R$ " << notes[i] << ".00" << endl;
+        integer = integer%notes[i];
     }
+
+    decimal += integer*100; // What's left from the integer part after dividing it will be added to the decimal part
+
     cout << "MOEDAS:" << endl;
-    for(i = 6 ; i < 12; i++){
-        cout << quant_bknc[i] << " moeda(s) de R$ " << coins[i] << endl;
+    for(i = 0; i < 6;i++){ // Decomposing the decimal part
+        cout << decimal/coins[i] << " moeda(s) de R$ " << coins[i]/100.0 << endl;
+        decimal = decimal%coins[i];
     }
     return 0;
 }
