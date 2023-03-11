@@ -27,9 +27,9 @@ int main(){
 
     cin >> amount;
 
-    // The number 70.34, for example, will be converted into binary so that it will be stored. In binary, it would
-    // be 70.33999999999999999999. To make sure the int function won't get 7033, we first multiply what's
-    // in the variable money by 100.
+    // The number 70.34, for example, will be converted into binary so that it will be stored by the computer.
+    // In binary, it would be 70.33999999999999999999. To make sure the integer variable won't get 7033, we
+    // first multiply what's in the variable amount by 100.
 
     temp = amount * 100;
 
