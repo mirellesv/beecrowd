@@ -23,7 +23,7 @@ int main(){
     double amount;
     int i, temp, integer, decimal, notes[6] = {100, 50, 20, 10, 5, 2}, coins[6] = {100, 50, 25, 10, 5, 1};
 
-    cout << fixed << setprecision(2);
+    cout << fixed << setprecision(2); // Setting the precision to 2 decimal places
 
     cin >> amount;
 
