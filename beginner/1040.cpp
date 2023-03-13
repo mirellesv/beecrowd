@@ -30,34 +30,33 @@ Print all the answers with one digit after the decimal point.
 using namespace std;
 
 int main(){
-    double score_1, score_2, score_3, score_4, average, final_exam;
-    int i;
+    float n1, n2, n3, n4, nf;
+    double avg1, avg2;
 
     cout << fixed << setprecision(1);
 
-    average = 0;
+    cin >> n1 >> n2 >> n3 >> n4;
 
-    cin >> score_1 >> score_2 >> score_3 >> score_4;
+    avg1 = ((n1 * 2) + (n2 * 3) + (n3 * 4) + n4)/10;
 
-    average = ((score_1 * 2) + (score_2 * 3) + (score_3 * 4) + (score_4 * 1)) / 10;
+    cout << "Media: " << avg1 << endl;
 
-    cout << "Media: " << average << endl;
-
-    if(average >= 7.0){
+    if(avg1 >= 7.0){
         cout << "Aluno aprovado." << endl;
-    }else if(average < 5.00){
+    }else if(avg1 < 5.0){
         cout << "Aluno reprovado." << endl;
     }else{
         cout << "Aluno em exame." << endl;
-        cin >> final_exam;
-        average += final_exam;
-        average = average/2;
-        if(average >= 5.0){
+        cin >> nf;
+        cout << "Nota do exame: " << nf << endl;
+        avg2 = (avg1 + nf)/2;
+
+        if(avg2 >= 5.0){
             cout << "Aluno aprovado." << endl;
         }else{
             cout << "Aluno reprovado." << endl;
         }
-        cout << "Media final: " << average << endl;
+        cout << "Media final: " << avg2 << endl;
     }
     return 0;
 }
