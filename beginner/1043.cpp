@@ -31,10 +31,10 @@ int main(){
     // To make a triangle, the sum of any two sides is greater than
     // the third side
 
-    if((A + B > C) && (B + C > A) && (C + B >A)){
+    if((A + B > C) && (B + C > A) && (A + C > B)){
         cout << "Perimetro = " << A+B+C << endl;
     }else{
-        cout << "Area = " << ((A + B)/2)*C << endl;
+        cout << "Area = " << ((A + B)*C)/2 << endl;
     }
 
     return 0;
