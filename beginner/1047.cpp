@@ -23,7 +23,6 @@ int main(){
     int initial_hour, initial_minute, final_hour, final_minute, hour_difference, minute_difference;
 
     cin >> initial_hour >> initial_minute >> final_hour >> final_minute;
-// 20:15 e 23:15
 
     if(final_hour > initial_hour){
         if(final_minute > initial_minute){
@@ -35,7 +34,7 @@ int main(){
         }else{
             hour_difference = final_hour - initial_hour;
             minute_difference = final_minute - initial_minute;
-        } // 5 9 4 6
+        }
     }else if (final_hour < initial_hour){
         if(final_minute > initial_minute){
             hour_difference = (final_hour + 24) - initial_hour;
