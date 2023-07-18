@@ -20,26 +20,42 @@ lasted XXX hour(s) and YYY minutes.
 using namespace std;
 
 int main(){
-    int initial_hour, initial_min, final_hour, final_min, duration_hour, duration_min;
+    int initial_hour, initial_minute, final_hour, final_minute, hour_difference, minute_difference;
 
-    cin >> initial_hour >> initial_min
-        >> final_hour >> final_min;
+    cin >> initial_hour >> initial_minute >> final_hour >> final_minute;
+// 20:15 e 23:15
 
-    duration_hour = 0;
-    duration_min = 0;
-
-    if(!((initial_hour == final_hour) &&(initial_min == final_min))){
-        if(final_min > initial_min){
-            duration_hour = final_hour - initial_hour;
-            duration_min = final_min - initial_min;
+    if(final_hour > initial_hour){
+        if(final_minute > initial_minute){
+            hour_difference = final_hour - initial_hour;
+            minute_difference = final_minute - initial_minute;
+        }else if(final_minute < initial_minute){
+            hour_difference = (final_hour - initial_hour) - 1;
+            minute_difference = (final_minute + 60) - initial_minute;
         }else{
-            duration_min = final_min - initial_min;
+            hour_difference = final_hour - initial_hour;
+            minute_difference = final_minute - initial_minute;
+        } // 5 9 4 6
+    }else if (final_hour < initial_hour){
+        if(final_minute > initial_minute){
+            hour_difference = (final_hour + 24) - initial_hour;
+            minute_difference = final_minute - initial_minute;
+        }else if(final_minute < initial_minute){
+            hour_difference = (final_hour + 24) - initial_hour - 1;
+            minute_difference = (final_minute + 60) - initial_minute;
+        }else{
+            hour_difference = (final_hour + 24) - initial_hour;
+            minute_difference = final_minute - initial_minute;
         }
-    }else{
-        duration_hour = 24;
-        duration_min = 0;
+    } else if(final_hour - initial_hour == 1){
+            if(final_minute < initial_minute){
+                hour_difference = 0;
+                minute_difference = (final_minute + 60) - initial_minute;
+            }else{
+                hour_difference = final_hour - initial_hour;
+                minute_difference = final_minute - initial_minute;
+            }
     }
 
-    cout << "O JOGO DUROU " << duration_hour << " HORA(S) E " << duration_min << " MINUTO(S)" << endl;
-    return 0;
+    cout << "O JOGO DUROU " << hour_difference << " HORA(S) E " << minute_difference << " MINUTO(S)" << endl;
 }
