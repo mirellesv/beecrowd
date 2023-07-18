@@ -47,14 +47,17 @@ int main(){
             hour_difference = (final_hour + 24) - initial_hour;
             minute_difference = final_minute - initial_minute;
         }
-    } else if(final_hour - initial_hour == 1){
-            if(final_minute < initial_minute){
-                hour_difference = 0;
-                minute_difference = (final_minute + 60) - initial_minute;
-            }else{
-                hour_difference = final_hour - initial_hour;
-                minute_difference = final_minute - initial_minute;
-            }
+    }else{
+        if(final_minute > initial_minute){
+            hour_difference = 0; // The game cannot be longer than 24 hours
+            minute_difference = final_minute - initial_minute;
+        }else if(final_minute < initial_minute){
+            hour_difference = 23;
+            minute_difference = (final_minute + 60) - initial_minute;
+        }else if(final_minute == initial_minute){
+            hour_difference = 24;
+            minute_difference = 0;
+        }
     }
 
     cout << "O JOGO DUROU " << hour_difference << " HORA(S) E " << minute_difference << " MINUTO(S)" << endl;
